@@ -22,4 +22,11 @@ for var in none empty; do
         echo "FAIL  .var=$var"; fail=1
     fi
 done
+# empty .var in vclamp must keep exactly t and the clamped cell's V and I
+hdr="$(head -1 "$work/empty/py/out" | xargs)"
+if [ "$hdr" = "#t #LP_Vm #LP_I" ]; then
+    echo "PASS  empty .var header: $hdr"
+else
+    echo "FAIL  empty .var header: $hdr"; fail=1
+fi
 exit $fail
