@@ -41,10 +41,12 @@ def _read_opt_file(path: Path) -> dict:
     return opts
 
 
-def _read_var_file(path: Path) -> list[str]:
-    names = []
+def _read_var_file(path: Path) -> list[str] | None:
+    # None if there is no .var file; an existing but empty .var file gives []
+    # and, as in the original, still restricts output (to t and any vclamp V/I).
     if not path.exists():
-        return names
+        return None
+    names = []
     for raw in path.read_text().splitlines():
         code = raw.split("#", 1)[0]
         names.extend(code.split())
@@ -232,8 +234,8 @@ def main(argv: list[str] | None = None):
                 setattr(o, k, v)
 
     var_names = _read_var_file(project_dir / f"{basename}.var")
-    if var_names:
-        (project_dir / ".networkvars").write_text("\n".join(var_names) + "\n")
+    if var_names is not None:
+        (project_dir / ".networkvars").write_text("".join(n + "\n" for n in var_names))
         o.varfileoption = ".networkvars"
 
     par_parts = [(project_dir / f"{basename}.par").read_text()]

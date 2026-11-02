@@ -1,0 +1,108 @@
+#define OFFSET -20
+
+LP_Iext=0
+LP_Cm=1.7     	# in nF
+
+LP_l_Gmax=0.1  	# in uS
+LP_l_Erev=-50   # in mV
+
+
+LP_d_Gmax=0.35
+LP_d_Erev=-80
+LP_d_mpower=4
+LP_d_minf=1/(1+exp(-(x+25)/17))
+LP_d_mtau=(1+exp(-(x-10)/22))/0.180
+
+LP_A1_Gmax=2
+LP_A1_Erev=-80
+LP_A1_mpower=3
+LP_A1_hpower=1
+LP_A1_minf=1/(1+exp(-(x+12)/26))
+LP_A1_mtau=6.666667
+LP_A1_hinf=1/(1+exp((x+62)/6))
+LP_A1_htau=20
+
+LP_A2_Gmax=0.4
+LP_A2_Erev=-80
+LP_A2_mpower=3
+LP_A2_hpower=1
+LP_A2_minf=1/(1+exp(-(x+40)/12))
+LP_A2_mtau=6.67
+LP_A2_hinf=1/(1+exp((x+62)/6))
+LP_A2_htau=200+3400/(1+exp((x+62)/6))
+
+LP_Ca1_Gmax=0.21
+LP_Ca1_mpower=1
+LP_Ca1_hpower=1
+LP_Ca1_minf=1/(1+exp(-(x+11)/7))
+LP_Ca1_mtau=20
+LP_Ca1_hinf=1/(1+exp((x+50)/8))
+LP_Ca1_htau=62.5
+
+LP_Ca2_Gmax=0.047
+LP_Ca2_mpower=1
+LP_Ca2_minf=1/(1+exp(-(x-22)/7))
+LP_Ca2_mtau=100
+
+LP_OCa_Gmax=3.2
+LP_OCa_Erev=-80
+LP_OCa_mpower=1
+LP_OCa_hpower=1
+LP_OCa_minf=(ca/(2.5+ca))/(1+exp(-(x+0.6*ca)/23))/(1+exp(-(x+16+0.6*ca)/5))
+LP_OCa_mtau=1.67
+LP_OCa_hinf=0.7/(0.6+ca)
+LP_OCa_htau=28.57
+
+LP_Cainf=0.05-0.8333*ica
+LP_Catau=2.78
+
+LP_h_Gmax=0.037
+LP_h_Erev=-10
+LP_h_mpower=1
+LP_h_minf=1/(1+exp((x+70)/7))
+LP_h_mtau=10*330/(1+exp(-(x+110)/13))
+
+LP_Na_Gmax=20
+LP_Na_Erev=50
+LP_Na_mpower=3
+LP_Na_hpower=1
+LP_Na_minf=1/(1+exp(-(x+28)/9.5))
+LP_Na_hinf=1/(1+exp((x+48)/3.7))
+LP_Na_htau=5+250/(1+exp((x+48)/3.7))
+
+LP_MI_Gmax=0.09
+LP_MI_Erev=-10
+LP_MI_mpower=1
+LP_MI_minf=1/(1+exp(-(x+55)/5))
+LP_MI_mtau=6
+
+
+#################################
+V double eca;
+V if(First) LP_Ca=0.11392243;
+V   eca=12.1936*log(13000/LP_Ca);
+V   LP_Ca1_Erev=eca; LP_Ca2_Erev=eca; 
+##V    if(t>500&&t<1500) LP_Iext=step__;else LP_Iext=hold__;
+##V   if(i%100 == 1) fprintf(stderr,"%f %f\n",t, eca);
+## voltage clamp: hold until t=500 ms, then step (ramp__=0) or ramp at 0.1 mV/ms (ramp__=1)
+V   if(t<=500) LP_Vm=hold__; else if(ramp__>0.5) LP_Vm=hold__+0.1*(t-500); else LP_Vm=step__;
+#################################
+hold__=-80
+step__=-50
+ramp__=0
+
+LP_d_Gmax=0.75
+LP_l_Erev=-60
+LP_MI_Gmax=0.09
+
+#LP_l_Gmax=0
+#LP_d_Gmax=0
+#LP_A1_Gmax=0
+#LP_A2_Gmax=0
+#LP_OCa_Gmax=0
+#LP_Ca1_Gmax=0
+#LP_Ca2_Gmax=0
+LP_h_Gmax=0
+#P_Na_Gmax=0
+
+

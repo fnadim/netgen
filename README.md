@@ -135,9 +135,13 @@ netgen/
   has not yet been run against a project that uses `-tabulate`/`-t` with
   Ca-dependent currents — validate before relying on it for such a
   project.
-* Only tested end-to-end on `ab`, `abpdpd`, `hh`, and `abpd`. Other DSL
+* Only tested end-to-end on `ab`, `abpdpd`, `hh`, `abpd`, and `LPK`
+  (single LP cell with `vclamp`, voltage set from a `Verbatim` step/ramp,
+  with and without an empty `.var` file — output matches the original
+  byte-for-byte). An existing but empty `.var` file restricts output to
+  `t` plus the clamped cells' V and I, as in the original. Other DSL
   features present in `parse_network` but not exercised by those
-  projects (nodes/`connect2node`, voltage clamp, `AlphaFunction`,
+  projects (nodes/`connect2node`, `AlphaFunction`,
   `PulseStim`, `ControlledPulse`, depressing synapses) were ported
   function-for-function from the original awk but have not been run
   against a real project that uses them. Worth a spot-check before
