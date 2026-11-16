@@ -1,0 +1,10 @@
+A_Cm=1
+A_L_Gmax=10
+A_L_Erev=-60
+
+NULL_A_S_Erev=0
+NULL_A_S_Gmax=1
+NULL_A_S_AlphaTau=10
+NULL_A_S_Period=30
+NULL_A_S_Tolerance=1e-3
+

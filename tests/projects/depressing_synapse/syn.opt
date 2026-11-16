@@ -1,0 +1,7 @@
+dt=0.05
+skip=20
+dd=1
+
+tmax=2000
+
+varfileoption="syn.var"

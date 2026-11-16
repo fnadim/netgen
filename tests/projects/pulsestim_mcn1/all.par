@@ -1,0 +1,271 @@
+#################################################
+# MCN1alambda = 1207.61 um
+# 4 comps of length 500 um, total 2000 um
+# taum = 17.5 msec
+# compartment Area = 1.57075e-08
+# ga = 52.3583
+# gm = 8.97571
+# Cm = 157.075
+#################################################
+
+MCN1a0_Cm=157.075000		# pF
+MCN1a0_Ga=52.358333		# nS
+MCN1a0_L_Gmax=8.975714		# nS
+MCN1a0_Na_Gmax=565.470000	#nS
+MCN1a0_K_Gmax=565.470000	#nS
+
+MCN1a1_Cm=157.075000		# pF
+MCN1a1_Ga=52.358333		# nS
+MCN1a1_L_Gmax=8.975714		# nS
+MCN1a1_Na_Gmax=565.470000	#nS
+MCN1a1_K_Gmax=565.470000	#nS
+
+MCN1a2_Cm=157.075000		# pF
+MCN1a2_Ga=52.358333		# nS
+MCN1a2_L_Gmax=8.975714		# nS
+MCN1a2_Na_Gmax=565.470000	#nS
+MCN1a2_K_Gmax=565.470000	#nS
+
+MCN1a3_Cm=157.075000		# pF
+MCN1a3_Ga=52.358333		# nS
+MCN1a3_L_Gmax=8.975714		# nS
+MCN1a3_Na_Gmax=565.470000	#nS
+MCN1a3_K_Gmax=565.470000	#nS
+
+MCN1a0_L_Erev=-80
+
+MCN1a1_L_Erev=-80
+
+MCN1a2_L_Erev=-80
+
+MCN1a3_L_Erev=-80
+
+MCN1a0_Na_Erev=45
+MCN1a0_Na_mpower=3
+MCN1a0_Na_hpower=1
+MCN1a0_Na_minf=1/(1+exp(-0.25*(v+62)))
+MCN1a0_Na_hinf=1/(1+exp(0.24*(v+64)))
+MCN1a0_Na_htau=(1+5/(1+exp(-0.24*(v+64))))
+
+MCN1a1_Na_Erev=45
+MCN1a1_Na_mpower=3
+MCN1a1_Na_hpower=1
+MCN1a1_Na_minf=1/(1+exp(-0.25*(v+62)))
+MCN1a1_Na_hinf=1/(1+exp(0.24*(v+64)))
+MCN1a1_Na_htau=(1+5/(1+exp(-0.24*(v+64))))
+
+MCN1a2_Na_Erev=45
+MCN1a2_Na_mpower=3
+MCN1a2_Na_hpower=1
+MCN1a2_Na_minf=1/(1+exp(-0.25*(v+62)))
+MCN1a2_Na_hinf=1/(1+exp(0.24*(v+64)))
+MCN1a2_Na_htau=(1+5/(1+exp(-0.24*(v+64))))
+
+MCN1a3_Na_Erev=45
+MCN1a3_Na_mpower=3
+MCN1a3_Na_hpower=1
+MCN1a3_Na_minf=1/(1+exp(-0.25*(v+62)))
+MCN1a3_Na_hinf=1/(1+exp(0.24*(v+64)))
+MCN1a3_Na_htau=(1+5/(1+exp(-0.24*(v+64))))
+
+MCN1a0_K_Erev=-80
+MCN1a0_K_mpower=4
+MCN1a0_K_minf=1/(1+exp(-0.24*(v+54)))
+MCN1a0_K_mtau=(8 + 20/(1+exp(0.24*(v+54))))
+
+MCN1a1_K_Erev=-80
+MCN1a1_K_mpower=4
+MCN1a1_K_minf=1/(1+exp(-0.24*(v+54)))
+MCN1a1_K_mtau=(8 + 20/(1+exp(0.24*(v+54))))
+
+MCN1a2_K_Erev=-80
+MCN1a2_K_mpower=4
+MCN1a2_K_minf=1/(1+exp(-0.24*(v+54)))
+MCN1a2_K_mtau=(8 + 20/(1+exp(0.24*(v+54))))
+
+MCN1a3_K_Erev=-80
+MCN1a3_K_mpower=4
+MCN1a3_K_minf=1/(1+exp(-0.24*(v+54)))
+MCN1a3_K_mtau=(8 + 20/(1+exp(0.24*(v+54))))
+
+#################################################
+# MCN1tlambda = 853.913 um
+# 2 comps of length 400 um, total 800 um
+# taum = 17.5 msec
+# compartment Area = 6.283e-09
+# ga = 16.362
+# gm = 3.59029
+# Cm = 62.83
+#################################################
+
+MCN1t0_Cm=62.830000		# pF
+MCN1t0_Ga=16.361979		# nS
+MCN1t0_L_Gmax=3.590286		# nS
+
+MCN1t1_Cm=62.830000		# pF
+MCN1t1_Ga=16.361979		# nS
+MCN1t1_L_Gmax=3.590286		# nS
+
+MCN1t0_L_Erev=-70
+
+MCN1t1_L_Erev=-70
+
+
+#############################################
+
+INT1a_Iext=0.000000
+INT1a_Cm=3.141590
+INT1a_Ga=3926.990000
+
+INT1a_h_Gmax=0.628318
+INT1a_h_Erev=-20
+INT1a_h_mpower=1
+INT1a_h_minf=1/(1+exp(2*(v+65)))
+INT1a_h_mtau=200+2500/(1+exp(2*(v+65)))
+
+INT1a_Na_Gmax=10.995600
+INT1a_Na_Erev=45
+INT1a_Na_mpower=3
+INT1a_Na_hpower=1
+INT1a_Na_minf=1/(1+exp(-0.08*(v+26)))
+INT1a_Na_hinf=1/(1+exp(0.13*(v+38)))
+INT1a_Na_htau=5/(1+exp(-0.12*(v+67)))
+
+INT1a_K_Gmax=18.849500
+INT1a_K_Erev=-80
+INT1a_K_mpower=4
+INT1a_K_minf=1/(1+exp(-0.045*(v+25)))
+INT1a_K_mtau=4+150/(1+exp(0.065*(v+30)))
+
+INT1a_L_Gmax=0.022902
+INT1a_L_Erev=-34
+
+INT1n_Iext=0.000000
+INT1n_Cm=0.785398
+INT1n_Ga=0.245437
+
+INT1n_L_Gmax=0.078540
+INT1n_L_Erev=-34
+
+INT1s_Iext=0.000000
+INT1s_Cm=3.141590
+INT1s_Ga=3926.990000
+
+INT1s_L_Gmax=0.314159
+INT1s_L_Erev=-34
+
+#############################################
+
+LGa_Iext=0.000000
+LGa_Cm=3.141590
+LGa_Ga=3926.990000
+
+LGa_Na_Gmax=10.995600
+LGa_Na_Erev=45
+LGa_Na_mpower=3
+LGa_Na_hpower=1
+LGa_Na_minf=1/(1+exp(-0.08*(v+21)))
+LGa_Na_hinf=1/(1+exp(0.13*(v+33)))
+LGa_Na_htau=(5/(1+exp(-0.12*(v+62))))
+
+LGa_K_Gmax=12.566400
+LGa_K_Erev=-80
+LGa_K_mpower=4
+LGa_K_minf=1/(1+exp(-0.045*(v+33)))
+LGa_K_mtau=(4 + 100/(1+exp(0.065*(v+5))))
+
+LGa_L_Gmax=0.022934
+LGa_L_Erev=-60
+
+LGn_Iext=0.000000
+LGn_Cm=0.785398
+LGn_Ga=0.245437
+
+LGn_L_Gmax=0.078540
+LGn_L_Erev=-40
+
+LGs_Iext=0.000000
+LGs_Cm=3.141590
+LGs_Ga=3926.990000
+
+LGs_L_Gmax=0.314159
+LGs_L_Erev=-40
+
+#############################################
+
+AB_Iext=-0.560000
+AB_Cm=3.141590
+
+AB_Ca_Gmax=1.256640
+AB_Ca_Erev=120
+AB_Ca_mpower=3
+AB_Ca_hpower=1
+AB_Ca_minf=1/(1+exp(-(v+61)/4.2))
+AB_Ca_hinf=1/(1+exp((v+88)/8.6))
+AB_Ca_htau=(300*(1.0/(1.0+exp((v+84)/7.3)))*(exp((v+162)/30.0))+40.0)
+
+AB_L_Gmax=0.314159
+AB_L_Erev=-63
+
+#############################################
+
+LGa_INT1a_S_Gmax=1.300000
+LGa_INT1a_S_Erev=-80
+LGa_INT1a_S_minf=1/(1+exp(-(v+25)))
+LGa_INT1a_S_mtau=3+97/(1+exp((v+25)))
+
+LGa_INT1n_S_Gmax=1.300000
+LGa_INT1n_S_Erev=-80
+LGa_INT1n_S_minf=1/(1+exp(-(v+25)))
+LGa_INT1n_S_mtau=3+97/(1+exp((v+25)))
+
+LGn_INT1s_S_Gmax=0.130000
+LGn_INT1s_S_Erev=-80
+LGn_INT1s_S_minf=1/(1+exp(-0.5*(v+45)))
+LGn_INT1s_S_mtau=50
+
+INT1s_LGn_S_Gmax=1.400000
+INT1s_LGn_S_Erev=-80
+INT1s_LGn_S_minf=1/(1+exp(-0.5*(v+49)))
+INT1s_LGn_S_mtau=100
+
+LGn_MCN1t1_S_Gmax=150
+LGn_MCN1t1_S_Erev=-80
+LGn_MCN1t1_S_minf=1/(1+exp(-2*(v+35)))
+LGn_MCN1t1_S_mtau=5+270/(1+exp(2*(v+35)))
+
+
+MCN1t1_LGn_P_Gmax=2.200000
+MCN1t1_LGn_P_Erev=45
+MCN1t1_LGn_P_minf=1/(1+exp(-2*(v+68)))
+MCN1t1_LGn_P_mtau=8000+9000/(1+exp(-2*(v+68)))
+
+
+MCN1t1_INT1n_S_Gmax=0.001500
+MCN1t1_INT1n_S_Erev=45
+MCN1t1_INT1n_S_minf=1/(1+exp(-(v+50)))
+MCN1t1_INT1n_S_mtau=30
+
+MCN1a3_LGa_E_Ggap=0.050000
+
+AB_INT1n_S_Gmax=2.000000
+#AB_INT1n_S_Gmax=0
+AB_INT1n_S_Erev=-70
+AB_INT1n_S_minf=1/(1+exp(-(v+55)))
+AB_INT1n_S_mtau=80
+
+#############################################
+
+#AB_MCN1a0_C_Period=33
+#AB_MCN1a0_C_Duration=1
+#AB_MCN1a0_C_Amplitude=4000
+#AB_MCN1a0_C_Threshold=-60
+#AB_MCN1a0_C_Delay=250
+#AB_MCN1a0_C_Above=0
+
+#############################################
+
+NULL_MCN1a0_I_Period=66
+NULL_MCN1a0_I_Duration=1
+NULL_MCN1a0_I_Amplitude=4000
+

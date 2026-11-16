@@ -1,0 +1,42 @@
+
+Pre_Cm=10   
+Pre_L_Gmax=1
+Pre_L_Erev=-70
+
+##################
+Post1_Cm=100
+Post1_L_Gmax=10
+Post1_L_Erev=-60
+
+##################
+Post2_Cm=100
+Post2_L_Gmax=10
+Post2_L_Erev=-60
+
+################
+# The synapses:
+################
+Pre_Post1_S_Gmax=2
+Pre_Post1_S_Erev=0
+Pre_Post1_S_minf=1/(1+exp(-(v+55)))
+Pre_Post1_S_mtau=25
+Pre_Post1_S_hinf=1/(1+exp((v+55)))
+Pre_Post1_S_htau=100+1000/(1+exp((v+55)))
+################
+Pre_Post2_S_Gmax=2
+Pre_Post2_S_Erev=0
+Pre_Post2_S_minf=1/(1+exp(-(v+55)))
+Pre_Post2_S_mtau=25
+Pre_Post2_S_hinf=1/(1+exp((v+55)))
+Pre_Post2_S_htau=100+1000/(1+exp((v+55)))
+
+
+################
+V int pre=1000;
+V int nump=5, p=400, ip=800;
+V int numb=2, b, ib=4000;
+V int time;
+V   b=nump*(p+ip);
+V   time = (int) t;
+V   if((time > pre) && (time%(p+ip) < p)) Pre_Vm=-45; 
+V   else Pre_Vm=-70; 

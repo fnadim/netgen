@@ -283,7 +283,7 @@ class CfgCompiler:
 
     def Stick_node_Iaxial_in_dVm(self, c1, nd):
         self._v1(c1).append(f"static double {c1}_{nd}_G, {c1}_{nd}_I;\n")
-        self._v2(c1).append(f"\t{c1}_{nd}_I = {c1}_{nd}_G * ({c1}_Vm - {c1}_Vnode);\n")
+        self._v2(c1).append(f"\t{c1}_{nd}_I = {c1}_{nd}_G * ({c1}_Vm - {nd}_Vnode);\n")
         self._v3(c1).append(f"- {c1}_{nd}_I ")
         self._v4(c1).append(f"\tif(First)\n\t\t{c1}_{nd}_G = 2.0 * {c1}_Ga;\n")
         self._nd1(nd).append(f" + {c1}_Ga*{c1}_Vm ")

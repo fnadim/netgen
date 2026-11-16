@@ -1,0 +1,20 @@
+hh_Iext=20
+hh_Cm=1 # uF/cm2
+
+hh_L_Gmax=0.3 # uS/cm2
+hh_L_Erev=-54.3 # mV
+
+hh_Na_Gmax=120
+hh_Na_Erev=50
+hh_Na_mpower=3
+hh_Na_hpower=1
+hh_Na_malpha=-0.5*(v+40)/(exp(-(v+40)/10)-1)
+hh_Na_mbeta=20*exp(-(v+65)/18)
+hh_Na_halpha=.07*exp(-(v+67)/100)
+hh_Na_hbeta=1/(exp(-(v+37)/10)+1)
+
+hh_K_Gmax=36
+hh_K_Erev=-77.5
+hh_K_mpower=4
+hh_K_malpha=-0.01*(v+55)/(exp(-(v+55)/10)-1)
+hh_K_mbeta=0.125*exp(-(v+65)/80)
