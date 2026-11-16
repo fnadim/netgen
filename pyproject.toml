@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netgen"
+version = "2.11+py.1"
+description = "Python port of the network_2_11 neuron/network simulator toolchain"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Farzan Nadim" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.scripts]
+netgen = "netgen.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["netgen"]
+
+[tool.setuptools.package-data]
+netgen = ["runtime/*"]

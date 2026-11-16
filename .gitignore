@@ -6,3 +6,6 @@ runnetwork
 .networkpars
 .networkvars
 last
+*.egg-info/
+build/
+dist/

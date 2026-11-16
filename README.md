@@ -54,10 +54,21 @@ generated code, which is what's being compared above.)
 Python 3.9+, `gcc`, and `make` on PATH. No third-party Python packages
 required.
 
+Install it once (from a clone of this repository) to get a `netgen`
+command:
+
+```
+pip install .                                      # or: pip install -e .  to edit in place
+pip install git+https://github.com/fnadim/netgen   # straight from GitHub
+```
+
+Without installing, `python3 -m netgen` still works from the repository
+directory (or with it on `PYTHONPATH`).
+
 ## Usage
 
 ```
-python3 -m netgen [OPTIONS] projectname
+netgen [OPTIONS] projectname
 ```
 
 Run from the project directory (the one containing `projectname.cfg`,
@@ -93,20 +104,20 @@ Output is written to **stdout**, same as the original — redirect it
 yourself:
 
 ```
-python3 -m netgen abpdpd > oabpdpd
+netgen abpdpd > oabpdpd
 ```
 
 ### What's different from the original CLI
 
-* This is a real `argv`-parsing Python program (`python3 -m netgen ...`),
-  not a shell script — invoke it with `python3 -m netgen`, not bare
-  `network`, unless you set up your own wrapper/symlink/venv entry point.
+* This is a real `argv`-parsing Python program, not a shell script —
+  invoke it as `netgen` (after `pip install`) or `python3 -m netgen`, not
+  bare `network`, unless you set up your own wrapper or symlink.
 * No `dd bs=10000` buffering trick on output (that was working around a
   historical shell/pipe issue; Python's stdout buffering handles this
   fine on its own).
 * Otherwise the flags, `.opt`/`.var` file handling, and output format are
   designed to be call-compatible with the original — a script like
-  `do_abpdpd.sh` needs only `network` renamed to `python3 -m netgen` (and
+  `do_abpdpd.sh` needs only `network` renamed to `netgen` (and
   the `NETWORKHOME`/PATH setup removed, since there's no separate compiled
   binary to locate — everything lives in this one Python package plus your
   system's `gcc`/`make`).
