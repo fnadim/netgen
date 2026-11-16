@@ -1,0 +1,22 @@
+#hh_Iext=0
+#hh_Cm=1 # uF/cm2
+
+#hh_L_Gmax=0.3 # nS/cm2
+#hh_L_Erev=-54.3 # mV
+
+hh_Vm=-80
+
+hh_Na_Gmax=120
+hh_Na_Erev=50
+hh_Na_mpower=3
+hh_Na_hpower=1
+hh_Na_minf=1/(1+exp(-0.105*(x+40)))
+hh_Na_mtau=0.45/cosh(-0.05*(x+40))+.1/(1+exp(-(0.2*(x+40))))
+hh_Na_hinf=1/(1+exp(0.15*(x+62)))
+hh_Na_htau=1+7.5/cosh(0.09*(x+65))
+
+hh_K_Gmax=36
+hh_K_Erev=-77.5
+hh_K_mpower=4
+hh_K_minf=1/(1+exp(-0.07*(x+53)))
+hh_K_mtau=1+6/(1+exp(0.05*(x+47)))

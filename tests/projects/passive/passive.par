@@ -1,0 +1,8 @@
+P_Cm=200		# pF
+P_L_Gmax=10 	# nS
+P_L_Erev=-60 	# mV
+
+V if(t>=100 && t<=300)
+V  P_Iext = 100;
+V else
+V  P_Iext = 0;

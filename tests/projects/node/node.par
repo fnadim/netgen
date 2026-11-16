@@ -1,0 +1,17 @@
+A_Cm=100
+A_Ga=2
+A_L_Gmax=10
+A_L_Erev=-60
+B_Cm=100
+B_Ga=10
+B_L_Gmax=10
+B_L_Erev=-60
+C_Cm=100
+C_Ga=2
+C_L_Gmax=10
+C_L_Erev=-60
+
+V if(i%100==1) fprintf(stderr, "%d %f\n", i, ABC_Vnode);
+V if(t>100) A_Iext=100; else A_Iext=0;
+
+

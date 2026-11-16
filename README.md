@@ -126,23 +126,39 @@ netgen/
     runtime/            unchanged C sources: runcell.c, numtools.c, numtools.h, makefile
 ```
 
-## Known limitations (inherited from the original, or not yet exercised)
+## Tests
 
-* `tabulate.py`'s Ca-dependent function handling has the same limitation
-  as the original `tabulate_network`: `double NAME(double x, double ca)`
-  functions pass through unmodified (not tabulated); only
-  `double NAME(double x)` functions get the lookup-table treatment. This
-  has not yet been run against a project that uses `-tabulate`/`-t` with
-  Ca-dependent currents — validate before relying on it for such a
-  project.
-* Only tested end-to-end on `ab`, `abpdpd`, `hh`, `abpd`, and `LPK`
-  (single LP cell with `vclamp`, voltage set from a `Verbatim` step/ramp,
-  with and without an empty `.var` file — output matches the original
-  byte-for-byte). An existing but empty `.var` file restricts output to
-  `t` plus the clamped cells' V and I, as in the original. Other DSL
-  features present in `parse_network` but not exercised by those
-  projects (nodes/`connect2node`, `AlphaFunction`,
-  `PulseStim`, `ControlledPulse`, depressing synapses) were ported
-  function-for-function from the original awk but have not been run
-  against a real project that uses them. Worth a spot-check before
-  trusting them on a new project that does.
+```
+pip install pytest
+pytest tests
+```
+
+Runs netgen on a set of small projects and compares the output with what
+the original `network_2_11` toolchain produced for the same projects.
+Between them they cover `node`/`connect2node`, `AlphaFunction`,
+`PulseStim`, `ControlledPulse`, `Depressing` synapses, `vclamp`,
+alpha/beta and tau/inf gating, and the `-t`, `-b`, `-e`, `-h`, `-s` and
+`-tol` flags. GitHub Actions runs them on every push and pull request.
+See [tests/README.md](tests/README.md), including how to regenerate the
+expected outputs from the original toolchain.
+
+## Known limitations and behaviour inherited from the original
+
+* `-t`/`-tabulate` does **not** change the simulation. The original
+  `network` script runs `tabulate_network` on a copy of `inf_tau.c`,
+  keeps only the generated `inf_tau_tables.h`, and deletes the rewritten
+  `inf_tau.c`, so the model is always compiled with the untabulated
+  functions. netgen does the same so that results stay identical.
+* Values in `projectname.opt` override the `-b`/`-e`/`-h`/`-s`/`-tol`
+  command-line flags, because the original reads the `.opt` file after
+  parsing the flags.
+* The generated C code calls `inf`/`tau` functions in the order they
+  appear in the `.par` file without prototypes. With recent gcc versions
+  (14+) that is a compile error when a function is used before the `.par`
+  line that defines it, so put shared function definitions (e.g. a
+  `shared.par`) before the parameters that use them. The original
+  toolchain behaves the same way.
+* Validated end-to-end against the original on `ab`, `abpd`, `abpdpd`
+  (byte-identical, including `-t`) and on the test projects above. Other
+  `parse_network` features that none of these use have been ported
+  function-for-function but not run against a real project.
