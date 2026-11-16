@@ -160,8 +160,20 @@ def tabulatecmd(project_dir: Path, o: Options):
     from . import tabulate as tab_mod
     build_dir = project_dir / o.networkdir_name
     inf_tau_c = (build_dir / "inf_tau.c").read_text()
-    new_c, tables_h = tab_mod.tabulate(inf_tau_c, perturb=o.perturb)
-    (build_dir / "inf_tau.c").write_text(new_c)
+    # Matches the original `network` exactly: its tabulatecmd() copies
+    # NETWORK/inf_tau.c out, runs tabulate_network on the copy, moves only
+    # inf_tau_tables.h back into NETWORK/ and then deletes the rewritten
+    # inf_tau.c. So the compiled model always uses the untabulated
+    # inf_tau.c and `-t` never changes the simulation output. We keep that
+    # behaviour (only the tables header is written) so results stay
+    # identical to the original toolchain.
+    try:
+        _new_c, tables_h = tab_mod.tabulate(inf_tau_c, perturb=o.perturb)
+    except (ZeroDivisionError, OverflowError, ValueError, NameError, SyntaxError) as e:
+        # gawk aborts on e.g. division by zero, leaving a truncated table;
+        # the table is never compiled in either way.
+        print(f"   tabulate: could not build inf_tau_tables.h ({e})", file=sys.stderr)
+        return
     (build_dir / "inf_tau_tables.h").write_text(tables_h)
 
 
