@@ -14,12 +14,11 @@ Validated against the original toolchain on real projects from
 * `ab` (single compartment, no synapses) — output matches the original
   byte-for-byte.
 * `abpdpd` (3 cells / 5 compartments, gap junctions + axial coupling +
-  a stochastic `Verbatim` current) — output matches the original to at
-  least 6 decimal places on every state variable after a 5000 ms
-  transient.
+  a stochastic `Verbatim` current) — output matches the original
+  byte-for-byte over a 5000 ms run (re-checked 2026-11-16).
 * `hh` (classic Hodgkin-Huxley cell using `mhAlphaBeta`/`mAlphaBeta`
-  alpha/beta-style gating, rather than `mTauInf`/`mhTauInf`) — runs and
-  compiles cleanly, sane spiking output.
+  alpha/beta-style gating, rather than `mTauInf`/`mhTauInf`) — output
+  matches the original byte-for-byte (now a regression test).
 * `abpd` (2 cells / 4 compartments, `keep`-exposed currents, a
   `CaXDep`-modifier calcium-concentration-dependent current (`KCa`), the
   auto-generated per-cell calcium-pool ODE (`Cainf`/`Catau`), a
